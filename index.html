@@ -111,7 +111,20 @@ Rm. E15-401, 20 Ames St., Cambridge, MA 02139.
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Describe your approach briefly here.
+						Why do different musical instruments have different sounds?<br>
+Various characteristics of sound, such as loudness (related to energy) and pitch (related to frequency) determine how our brain perceives a musical instrument.
+BUT, if a clarinet and a piano play notes of the same pitch and loudness, the sounds will still be quite distinct to our ears.  
+What , then , discriminates the sound of a clarinet from a piano ?<br><br>
+
+The answer is Timbre!<br>
+Timbre distinguishes different types of  musical instruments, such as string instruments, wind instruments, and percussion instruments. It also enables listeners to distinguish different instruments in the same category (e.g.  a clarinet and an oboe) .<br>
+Musical instruments do not vibrate at a single frequency: a given note involves vibrations at many different frequencies, often called harmonics,  partials, or overtones. The relative pitch and loudness of these overtones along with other acoustic features give the note a characteristic sound we call the timbre of the instrument.<br><br>
+
+Timbre can be successfully used to distinguish between the 4 braod classes of music. After that we may use class-specific features to distinguish the intrument within the class.<br><br>
+
+Thus to achieve the goal of detecting the instrument bein played in a given sound clip, we propose a two step approach: <br>
+[1] In the first step we take advantage of the fact that musical instruments can be divided into 4 broad classes: Woodwind; String; Keyboard; Brass. Thus we train use a simple multilayer perceptron trained using basic timbre features : Spectral Centroid, Zero Crossing rate and Spectral Rolloff. This helps find the basic class of the given musical instrument and leaves us with the task of finding the exact instrument from within that basic class.<br>
+[2] In the second step, we train a classifer with individual class specific features as mentioned below. This helps us to accuarately identify the musical intrument within the basic class as detected earlier.<br>
 						<!-- Stop edit here -->
 
 					</div>
