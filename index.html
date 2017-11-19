@@ -125,7 +125,7 @@ P.O.Box 553, FIN-33101 Tampere, FINLAND
 						Why do different musical instruments have different sounds?<br>
 Various characteristics of sound, such as loudness (related to energy) and pitch (related to frequency) determine how our brain perceives a musical instrument.
 BUT, if a clarinet and a piano play notes of the same pitch and loudness, the sounds will still be quite distinct to our ears.  
-What , then , discriminates the sound of a clarinet from a piano ?<br><br>
+What , then , discriminates the sound of a clarinet from a violin ?<br><br>
 
 The answer is Timbre!<br>
 Timbre distinguishes different types of  musical instruments, such as string instruments, wind instruments, and percussion instruments. It also enables listeners to distinguish different instruments in the same category (e.g.  a clarinet and an oboe) .<br>
@@ -134,8 +134,8 @@ Musical instruments do not vibrate at a single frequency: a given note involves 
 Timbre can be successfully used to distinguish between the 4 broad classes of music. After that we may use class-specific features to distinguish the intrument within the class.<br><br>
 
 Thus to achieve the goal of detecting the instrument bein played in a given sound clip, we propose a two step approach: <br>
-[1] In the first step we take advantage of the fact that musical instruments can be divided into 4 broad classes: Woodwind; String; Keyboard; Brass. Thus we train use a simple multilayer perceptron trained using basic timbre features : Spectral Centroid, Zero Crossing rate and Spectral Rolloff. This helps find the basic class of the given musical instrument and leaves us with the task of finding the exact instrument from within that basic class.<br>
-[2] In the second step, we train a classifer with individual class specific features . This helps us to accuarately identify the musical intrument within the basic class as detected earlier.<br>
+<br>[1] In the first step we take advantage of the fact that musical instruments can be divided into 3 broad classes: Woodwind; String and Brass. Thus we train use a simple multilayer perceptron trained using basic timbre features : Spectral Centroid, Zero Crossing rate and Spectral Rolloff. This helps find the basic class of the given musical instrument and leaves us with the task of finding the exact instrument from within that basic class.<br>
+<br>[2] In the second step, we train a classifer with individual class specific features . This helps us to accuarately identify the musical intrument within the basic class as detected earlier.<br>
 						<!-- Stop edit here -->
 
 					</div>
@@ -146,10 +146,10 @@ Thus to achieve the goal of detecting the instrument bein played in a given soun
 
 						<!-- Start edit here  -->
 						This project report is organized as follows. <br>
-						[1] First, we give some background information on the importance of automatic Musical Instrument recognition and the motivation behind it.<br>
-						[2] This is followed by the section on proposed approach where we discuss the approach towards the classification task. Some details about feature properties and their mathematical constructs are also presented.<br>
-						[3] Then, a brief description of the dataset is followed by classification techniques employed in the project. <br>
-						[4] Finally, results are presented along with the conclusion of the project. A short summary and possible future extensions close the report.
+						<br>[1] First, we give some background information on the importance of automatic Musical Instrument recognition and the motivation behind it.<br>
+						<br>[2] This is followed by the section on proposed approach where we discuss the approach towards the classification task. Some details about feature properties and their mathematical constructs are also presented.<br>
+						<br>[3] Then, a brief description of the dataset is followed by classification techniques employed in the project. <br>
+						<br>[4] Finally, results are presented along with the conclusion of the project. A short summary and possible future extensions close the report.
 					</div>
 				</div>
 			</div>
@@ -236,26 +236,26 @@ WOODWIND : <br>1)Saxophone - 32 samples<br>
 					<div class="text">
 
 						<!-- Start edit here  -->
-						<br><p><u><b>INDIVIDUAL TRAINING:-</b></u></p><br><br><b>Basic family classifier</b><br>
+						<br><p><u><b>INDIVIDUAL TRAINING:-</b></u></p><br><br></u><b>Basic family classifier</b></u><br><br>
 Training - 446<br>
 Testing - 112<br>
 	<br><img src="1.png" alt="This text displays when the image is umavailable"/><br>
 	<br>Training accuracy = 97.76%<br>
 Testing accuracy = 96.42%<br>
-	<br><b>Brass classifier</b><br>
+	<br><u><b>Brass classifier</b></u><br><br>
 	Training - 148<br>
 Testing - 37<br>
 
 	<br><img src="2.png" alt="This text displays when the image is umavailable"/><br>
 	<br>Training accuracy = 100%<br>
 Testing accuracy = 100%<br>
-	<br><b>String classifier</b><br>
+	<br><u><b>String classifier</b></u><br><br>
 	Training - 152<br>
 Testing - 38<br>
 	<br><img src="3.png" alt="This text displays when the image is umavailable"/><br>
 	<br>Training accuracy = 96.7%<br>
 Testing accuracy = 100%<br>
-	<br><b>Woodwind classifier</b><br>
+	<br><u><b>Woodwind classifier</b></u><br><br>
 	Training - 146<br>
 Testing - 37<br>
 	<br><img src="4.png" alt="This text displays when the image is umavailable"/><br>
@@ -263,7 +263,7 @@ Testing - 37<br>
 Testing accuracy = 94.59%<br>
 	<br>6 layer Neural Networks with different hyperparameters have been used for classifiers.<br>
 	<br><p><u><b>Features used in individual classifiers:-</b></u></p><br>
-	<br><b>Basic classifier and brass classifier:-</b><br>
+	<br><u><b>Basic classifier and brass classifier:-</b></u><br><br>
 1. spectral centroid<br>
 2. zero crossing<br>
 3. spectral rollof<br>
@@ -272,7 +272,7 @@ Testing accuracy = 94.59%<br>
 6. Spectral Flatness<br>
 7. Spectral Skewness<br>
 8. Spectral Slope<br>
-<br><b>string classifier:-</b><br>
+<br><u><b>string classifier:-</b></u><br>
 1. Spectral Centroid<br>
 2. Fundamental frequency<br>
 3. spectral centroid variance<br>
@@ -281,7 +281,7 @@ Testing accuracy = 94.59%<br>
 6. Spectral Flatness<br>
 7. Spectral Skewness<br>
 8. Spectral Slope<br>
-<br><b>woodwind classifier :-</b><br>
+<br><u><b>woodwind classifier :-</b></u><br><br>
 1. Spectral Centroid<br>
 2. Spectral Crest<br>
 3. Spectral Decrease<br>
