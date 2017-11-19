@@ -167,14 +167,14 @@ Thus to achieve the goal of detecting the instrument bein played in a given soun
 </ul>
    Timbre depends primarily upon the spectral features,although it also depends upon the sound pressure and the temporal characteristics of the sound. Some of the prominent features are described below :<br>
 					<br>[1] <p><u><b>Amplitude Envelope:-</b></u></p> refers to the changes in the amplitude of a sound over time, and is an influential property as it affects our perception of timbre.<br>
-					<br>[2] <p><u><b>zero-crossing rate:-</b></u></p> The zero-crossing rate is the rate of sign-changes along a signal, i.e., the rate at which the signal changes from positive to negative or back.This is a good measure of the pitch as well as the noisiness of a signal.This feature has been used heavily in both speech recognition and music information retrieval, being a key feature to classify percussive sounds.<br>
+					<br>[2] <p><u><b>Zero-crossing rate:-</b></u></p> The zero-crossing rate is the rate of sign-changes along a signal, i.e., the rate at which the signal changes from positive to negative or back.This is a good measure of the pitch as well as the noisiness of a signal.This feature has been used heavily in both speech recognition and music information retrieval, being a key feature to classify percussive sounds.<br>
 					<br><img src="zcr.PNG" alt="This text displays when the image is umavailable"/>
 					where <b>s</b> is a signal of length T and <b>1</b> is an indicator function.<br>.
 					<br>[3] <p><u><b>Pitch</b></u></p> is a perceptual property of sounds that allows their ordering on a frequency-related scale. Pitch may be quantified by frequency; "high" pitch means very rapid oscillation, and "low" pitch corresponds to slower oscillation. <br>
 					<br>[4] <p><u><b>Spectral Envelope:-</b></u></p> Spectral envelope is a curve in the frequency-amplitude plane, derived from a fourier magnitude spectrum. It wraps tightly and smoothly around the magnitude spectrum ,linking the peaks.<br>
 					<br>[5] <p><u><b>Spectral Centroid:-</b></u></p> Spectral Centroid is simply the centroid of the spectral envelope, and is one of the most important attributes governing timbre.<br>
 					<br><img src="centroid.png" alt="This text displays when the image is umavailable"/>
-					<br>[6] <p><u><b>Spectral Roll off:-</b></u></p> This is a measure of the amount of the right-skewedness of the power spectrum.
+					<br>[6] <p><u><b>Spectral Rolloff:-</b></u></p> This is a measure of the amount of the right-skewedness of the power spectrum.
 The spectral rolloff point is the fraction of bins in the power spectrum at which 85% of the power is at lower frequencies<br>
 					<br>[7] <p><u><b>Intensity:-</b></u></p>The sum of the energy in the spectral envelope approximates the instantaneous loudness of the signal. Tracking this over time leads to simple measures of amplitude modulation, which can reveal tremolo (an important feature for brass instruments). Intensity is the basis of many other spectral
 					features like <b>Spectral Rolloff frequency</b> among others.<br>
@@ -264,24 +264,24 @@ Testing accuracy = 94.59%<br>
 	<br>6 layer Neural Networks with different hyperparameters have been used for classifiers.<br>
 	<br><p><u><b>Features used in individual classifiers:-</b></u></p><br>
 	<br><u><b>Basic classifier and brass classifier:-</b></u><br><br>
-1. spectral centroid<br>
-2. zero crossing<br>
-3. spectral rollof<br>
+1. Spectral centroid<br>
+2. Zero crossing<br>
+3. Spectral rollof<br>
 4. Spectral Crest<br>
 5. Spectral Decrease<br>
 6. Spectral Flatness<br>
 7. Spectral Skewness<br>
 8. Spectral Slope<br>
-<br><u><b>string classifier:-</b></u><br><br>
+<br><u><b>String classifier:-</b></u><br><br>
 1. Spectral Centroid<br>
 2. Fundamental frequency<br>
-3. spectral centroid variance<br>
+3. Spectral centroid variance<br>
 4. Spectral Crest<br>
 5. Spectral Decrease<br>
 6. Spectral Flatness<br>
 7. Spectral Skewness<br>
 8. Spectral Slope<br>
-<br><u><b>woodwind classifier :-</b></u><br><br>
+<br><u><b>Woodwind classifier :-</b></u><br><br>
 1. Spectral Centroid<br>
 2. Spectral Crest<br>
 3. Spectral Decrease<br>
@@ -290,7 +290,7 @@ Testing accuracy = 94.59%<br>
 6. Spectral Slope<br>
 7. Fundamental Frequency<br>
 8. Variance of Spectral Centroid<br>
-9. mfcc<br>
+9. MFCC<br>
 						<!-- Stop edit here -->
 
 					</div>
