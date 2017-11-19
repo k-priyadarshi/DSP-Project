@@ -187,14 +187,14 @@ The spectral rolloff point is the fraction of bins in the power spectrum at whic
 					<br>[12] <p><u><b>Spectral leakage/Decrease:-</b></u></p> Any linear time-invariant operation on s(t) produces a new spectrum of the form H(f)•S(f), which changes the relative magnitudes and/or angles (phase) of the non-zero values of S(f). Any other type of operation creates new frequency components that may be referred to as spectral leakage. The spectrum of a product is the convolution between S(f) and another function, which inevitably creates the new frequency components. But the term 'leakage' usually refers to the effect of windowing, which is the product of s(t) with a different kind of function, the window function. Window functions happen to have finite duration, but that is not necessary to create leakage. Multiplication by a time-variant function is sufficient.<br>
 					<br>[13] <p><u><b>Variance of Spectral Centroid:-</b></u></p> Its the variance of the spectral centroid over our signal.This is a useful feature as it tells the very nature of our spectral spead over the frequency range.<br>
 					<br>[14] <p><u><b>The mel-frequency cepstrum (MFC) :-</b></u></p> is a representation of the short-term power spectrum of a sound, based on a linear cosine transform of a log power spectrum on a nonlinear mel scale of frequency. The difference between the normal cepstrum and the mel-frequency cepstrum is that in the MFC, the frequency bands are equally spaced on the mel scale, which approximates the human auditory system's response more closely than the linearly-spaced frequency bands used in the normal cepstrum. This frequency warping can allow for better representation of sound</br>
-					<u><br>Step by Step Explanation of MFCC Feature Extraction:-</u><br>
+					<u><br>Step by Step Explanation of MFCC Feature Extraction:-</u><br><br>
 1.	Frame the signal into short frames.<br>
 2.	For each frame calculate the periodogram estimate of the power spectrum.<br>
 3.	Apply the mel filterbank to the power spectra, sum the energy in each filter.<br>
 4.	Take the logarithm of all filterbank energies.<br>
 5.	Take the DCT of the log filterbank energies.<br>
 6.	Keep DCT coefficients 2-13, discard the rest.<br>
-	<u><br><b>Intuitive Understanding of Each step in MFCC feature extraction :-</u></b><br>
+	<u><br><b>Intuitive Understanding of Each step in MFCC feature extraction :-</u></b><br><br>
 An audio signal is constantly changing, so to simplify things we assume that on short time scales the audio signal doesn't change much (when we say it doesn't change, we mean statistically i.e. statistically stationary, obviously the samples are constantly changing on even short time scales). This is why we frame the signal into 20-40ms frames. If the frame is much shorter we don't have enough samples to get a reliable spectral estimate, if it is longer the signal changes too much throughout the frame.
 The next step is to calculate the power spectrum of each frame. This is motivated by the human cochlea (an organ in the ear) which vibrates at different spots depending on the frequency of the incoming sounds. Depending on the location in the cochlea that vibrates (which wobbles small hairs), different nerves fire informing the brain that certain frequencies are present. Our periodogram estimate performs a similar job for us, identifying which frequencies are present in the frame.
 The periodogram spectral estimate still contains a lot of information not required for Automatic Speech Recognition (ASR). In particular the cochlea can not discern the difference between two closely spaced frequencies. This effect becomes more pronounced as the frequencies increase. For this reason we take clumps of periodogram bins and sum them up to get an idea of how much energy exists in various frequency regions. This is performed by our Mel filterbank: the first filter is very narrow and gives an indication of how much energy exists near 0 Hertz. As the frequencies get higher our filters get wider as we become less concerned about variations. We are only interested in roughly how much energy occurs at each spot. The Mel scale tells us exactly how to space our filterbanks and how wide to make them. 
@@ -213,9 +213,20 @@ The final step is to compute the DCT of the log filterbank energies. There are 2
 
 						<!-- Start edit here  -->
 						<br>The dataset chosen for the task at hand is the audio samples taken from the University of Iowa - Electronic Music Studios .
-						The samples taken belong to the three instrument families namely - String , Woodwind and Brass. There are a total of
-						417 samples of which a 80 % - 20 % division has been done to be used for training and testing, respectively.<br>
-						<br> The link to the dataset is here : <a href="http://theremin.music.uiowa.edu/MISPost2012Intro.html"> University of Iowa : Audio Samples Site</a>
+						The samples taken belong to the three instrument families namely - Brass, String and Woodwind.<br>
+						<br><u>Instruments used were:-</u><br><br>
+						STRING : 1)Viola - 100 samples<br>
+2)Violin - 90 samples<br><br>
+BRASS : 1)Trumpet - 71 samples<br>
+2)TenorTrombone - 33 samples<br>
+3)Tuba - 37 samples<br>
+4)Horn - 44 samples<br><br>
+WOODWIND : 1)Saxophone - 32 samples<br>
+2)EbClarinet - 39 samples<br>
+3)Oboe - 35 samples<br>
+4)Flute - 77 samples<br>
+						There are a total of 558 samples of which a 80 % - 20 % division has been done to be used for training and testing, respectively.<br>
+						<br> The link to the dataset is here : <a href="https://drive.google.com/open?id=14ElVjvVGH436WP9aaYPSTCBAW1jvNRjN.html"> University of Iowa : Audio Samples Site</a>
 						<!-- Stop edit here -->
 
 					</div>
