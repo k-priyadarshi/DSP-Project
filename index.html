@@ -200,8 +200,6 @@ The next step is to calculate the power spectrum of each frame. This is motivate
 The periodogram spectral estimate still contains a lot of information not required for Automatic Speech Recognition (ASR). In particular the cochlea can not discern the difference between two closely spaced frequencies. This effect becomes more pronounced as the frequencies increase. For this reason we take clumps of periodogram bins and sum them up to get an idea of how much energy exists in various frequency regions. This is performed by our Mel filterbank: the first filter is very narrow and gives an indication of how much energy exists near 0 Hertz. As the frequencies get higher our filters get wider as we become less concerned about variations. We are only interested in roughly how much energy occurs at each spot. The Mel scale tells us exactly how to space our filterbanks and how wide to make them. 
 Once we have the filterbank energies, we take the logarithm of them. This is also motivated by human hearing: we don't hear loudness on a linear scale. Generally to double the percieved volume of a sound we need to put 8 times as much energy into it. This means that large variations in energy may not sound all that different if the sound is loud to begin with. This compression operation makes our features match more closely what humans actually hear. Why the logarithm and not a cube root? The logarithm allows us to use cepstral mean subtraction, which is a channel normalisation technique.
 The final step is to compute the DCT of the log filterbank energies. There are 2 main reasons this is performed. Because our filterbanks are all overlapping, the filterbank energies are quite correlated with each other. The DCT decorrelates the energies which means diagonal covariance matrices can be used to model the features in e.g. a HMM classifier. But notice that only 12 of the 26 DCT coefficients are kept. This is because the higher DCT coefficients represent fast changes in the filterbank energies and it turns out that these fast changes actually degrade ASR performance, so we get a small improvement by dropping them.<br>
-
-
 					<!-- Stop edit here -->
 
 				</div>
@@ -227,18 +225,61 @@ The final step is to compute the DCT of the log filterbank energies. There are 2
 					<div class="text">
 
 						<!-- Start edit here  -->
-						[1] In the first stage of the experiment, A neural network classifier was trained using three basic features i.e. Zero Crossing Rate,
-						Spectral Centroid and Spectral RollOff Frequency , for identifying the instrument family.<br>
-						The neural network was trained with dropout, and Adam Optimizer was used in training the classifier. The classifier was trained for 500 epochs and the respective training and 
-						testing scores were evaluated.<br>
-						<ul>
-							<li>Training Accuracy : 84.73 %</li>
-							<li>Testing Accuracy :   80.72 %</li>
-						</ul>
-						The classifier can be further improved using more number of relevant features, which we are currently working on. Also, the size of the training
-						dataset is insufficient as of now. Increasing the sample size will improve the performance of the classifier greatly.<br>
-						<br>Here is a snapshot of the classifier indicating training and testing accuracies :
-						<br><br><img src="Picture2.png" alt="This text displays when the image is umavailable" width="500px" height=""/>
+						<br><p><u><b>INDIVIDUAL TRAINING:-</b></u></p><br><br><b>Basic family classifier</b><br>
+Training - 446<br>
+Testing - 112<br>
+	<br><img src="1.png" alt="This text displays when the image is umavailable"/><br>
+	<br>Training accuracy = 97.76%<br>
+Testing accuracy = 96.42%<br>
+	<br><b>Brass classifier</b><br>
+	Training - 148<br>
+Testing - 37<br>
+
+	<br><img src="2.png" alt="This text displays when the image is umavailable"/><br>
+	<br>Training accuracy = 100%<br>
+Testing accuracy = 100%<br>
+	<br><b>String classifier</b><br>
+	Training - 152<br>
+Testing - 38<br>
+	<br><img src="3.png" alt="This text displays when the image is umavailable"/><br>
+	<br>Training accuracy = 96.7%<br>
+Testing accuracy = 100%<br>
+	<br><b>Woodwind classifier</b><br>
+	Training - 146<br>
+Testing - 37<br>
+	<br><img src="4.png" alt="This text displays when the image is umavailable"/><br>
+	<br>Training accuracy = 99.3%<br>
+Testing accuracy = 94.59%<br>
+	<br>6 layer Neural Networks with different hyperparameters have been used for classifiers.<br>
+	<br><p><u><b>Features used in individual classifiers:-</b></u></p><br>
+	<br><b>Basic classifier and brass classifier:-</b><br>
+1. spectral centroid<br>
+2. zero crossing<br>
+3. spectral rollof<br>
+4. Spectral Crest<br>
+5. Spectral Decrease<br>
+6. Spectral Flatness<br>
+7. Spectral Skewness<br>
+8. Spectral Slope<br>
+<br><b>string classifier:-</b><br>
+1. Spectral Centroid<br>
+2. Fundamental frequency<br>
+3. spectral centroid variance<br>
+4. Spectral Crest<br>
+5. Spectral Decrease<br>
+6. Spectral Flatness<br>
+7. Spectral Skewness<br>
+8. Spectral Slope<br>
+<br><b>woodwind classifier :-</b><br>
+1. Spectral Centroid<br>
+2. Spectral Crest<br>
+3. Spectral Decrease<br>
+4. Spectral Flatness<br>
+5. Spectral Skewness<br>
+6. Spectral Slope<br>
+7. Fundamental Frequency<br>
+8. Variance of Spectral Centroid<br>
+9. mfcc<br>
 						<!-- Stop edit here -->
 
 					</div>
@@ -252,7 +293,7 @@ The final step is to compute the DCT of the log filterbank energies. There are 2
 					<div class="text">
 
 						<!-- Start edit here  -->
-						Write something here.
+						<br>As proposed in our approach, we were successfully able to build a two stage musical instrument detector. We were able to achieve decent test accuracy ( 96.42% for basic classifier, 100% for brass family , 96.7% for string family and 94.59% for the woodwind family). This shows that the features we had chosen for each of the classifiers based on the unique traits of each class were quite appropriate. We have also tried to ensure minimal use of inbuilt MATLAB functions and have written code to the features and supporting functions( like spectrogram , dft etc) too ourselves using the algorithms discussed in class (EE320- Digital Signal Processing) . <br>
 						<!-- Stop edit here -->
 
 					</div>
